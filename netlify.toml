@@ -1,0 +1,30 @@
+# Netlify configuration for the Badadent static site.
+# No build step: Netlify publishes the repository root as-is.
+
+[build]
+  publish = "."
+
+# Security headers for every page.
+# TODO (phase 6): review the CSP once the final HTML is in place (JSON-LD, icons, fonts).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    X-Frame-Options = "DENY"
+
+# Never publish the original photos (they may contain EXIF metadata such as GPS).
+# TODO (phase 6): confirm this rule works on the deploy, or exclude the folder another way.
+[[redirects]]
+  from = "/photos-source/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scripts/*"
+  to = "/404.html"
+  status = 404
+  force = true

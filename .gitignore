@@ -1,0 +1,28 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node (only if scripts/ ever uses npm)
+node_modules/
+npm-debug.log*
+
+# Netlify local state
+.netlify/
+
+# Local environment / secrets
+.env
+.env.*
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Temporary files
+*.tmp
+*.log

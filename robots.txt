@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO (phase 6): uncomment once the final domain is known.
+# Sitemap: https://TODO-DOMINIO/sitemap.xml
